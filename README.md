@@ -1,71 +1,101 @@
-# Serv00 - 控制面板自动登录脚本
+<div align="right">
+   <a href="README_CN.md">中文</a> | <strong>English</strong>
+</div>
 
-## 使用方法
+<img src="https://www.serv00.com/static/ct8/img/logo.jpg" alt="serv00 logo" width="50" height="50" align="right" />
 
-1. 在 GitHub 仓库中，进入右上角`Settings`
+<div align="center">
 
-2. 在侧边栏找到`Secrets and variables`，点击展开选择`Actions`，点击`New repository secret`
+<h1> serv00-auto-scripts </h1>
+
+<p>Serv00/CT8 - Free Host Auto Renewal (Automatic SSH and PM2) and Other Scripts</p>
+
+</div>
+
+<hr/>
+
+<div align="center">
+<a href="https://panel.serv00.com/">serv00 Demo</a> | 
+<a href="https://www.serv00.com/">serv00 Official</a> | 
+<a href="https://docs.serv00.com/">serv00 Docs</a> | 
+<a href="https://forum.serv00.com/">serv00 Forum</a>
+</div>
+
+<hr/>
+
+<div align="center">
+<a href="https://panel.ct8.pl/">CT8 Demo</a> | 
+<a href="https://www.ct8.pl/">CT8 Official</a> | 
+<a href="https://wiki.mydevil.net/">CT8 Docs</a> | 
+<a href="https://forum.ct8.pl/">CT8 Forum</a>
+</div>
+
+<hr/>
+
+## Usage
+
+1. In the GitHub repository, go to the top right corner and click on `Settings`
+
+2. On the sidebar, find `Secrets and variables`, click to expand and select `Actions`, then click `New repository secret`
     
-3. 然后创建一个名为`ACCOUNTS_JSON`的`Secret`，将 JSON 格式的账号密码字符串作为它的值，如下格式：  
+3. Then [create](https://lopins.github.io/serv00-auto-scripts/) a `Secret` named `ACCOUNTS_JSON`, set its value as the account and password string in JSON format, as follows:  
 
 ``` json
 [  
-  { "username": "qishihuang", "password": "zhanghao", "panelnum": "3" },  
-  { "username": "zhaogao", "password": "daqinzhonggong", "panelnum": "1" },  
-  { "username": "heiheihei", "password": "shaibopengke", "panelnum": "2" }  
+  { "username": "qishihuang", "password": "zhanghao", "panel": "panel3.serv00.com" },  
+  { "username": "zhaogao", "password": "daqinzhonggong", "panel": "panel1.serv00.com" },  
+  { "username": "heiheihei", "password": "shaibopengke", "panel": "panel.ct8.pl" }  
 ]
 ```
 
-> 其中`panelnum`参数为面板编号，即为你所收到注册邮件的`panel*.serv00.com`中的`*`数值。
+> The `panel` parameter is the panel number, which is the value in the `panel*.serv00.com` from the registration email you received.
 
-## 贡献
+4. **Optional** Creating two parameters `Secret` for the Telegram bot: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`
 
-|姓名|主页|内容|
-| :------------: | :------------: | :------------: |
-|linzjian666|https://github.com/linzjian666|增加多面板支持|
+## Unable to SSH Login
 
-## 参考信息
+> If you cannot log in, it is due to an IP Ban, click here to unlock: [Ban](https://www.serv00.com/ip_unban/)
 
-|  名称 |来源|地址|
-| :------------: | :------------: | :------------: |
-|Limkon|Github|https://github.com/Limkon|
-
-## SSH登录不上
-
-> 登录不上是因为Ban IP, 点击此处解锁： [Ban](https://www.serv00.com/ip_unban/)
-
-> 还是登录不上的话： 请使用下方 `FinalShell`，并勾上 `智能海外加速`，登录失败在弹出框选择`取消`，在弹出框填入`[邮件中的SSH密码]`
+> If still unable to log in: Please use `FinalShell` below, and check `Smart Overseas Acceleration`. If login fails, choose `Cancel` in the pop-up box, and enter `[the SSH password from your email]` in the pop-up box.
 
 ## FinalShell
 
-FinalShell是一体化的的服务器,网络管理软件,不仅是ssh客户端,还是功能强大的开发,运维工具,充分满足开发,运维需求.
+FinalShell is an integrated server and network management software, not only an SSH client but also a powerful development and operations tool that fully meets the needs of developers and operators.
 
-### 特色功能
+### Features
 
-云端同步,免费海外服务器远程桌面加速,ssh加速,本地化命令输入框,支持自动补全,命令历史,自定义命令参数
+Cloud synchronization, free overseas server remote desktop acceleration, SSH acceleration, localized command input box with auto-completion, command history, and custom command parameters.
 
-- Windows X64版,下载地址: <http://www.hostbuf.com/downloads/finalshell_windows_x64.exe>
+- Windows X64 version, download address: <http://www.hostbuf.com/downloads/finalshell_windows_x64.exe>
 
-- macOS Arm版,支持m1,m2,m3 cpu,下载地址: <http://www.hostbuf.com/downloads/finalshell_macos_arm64.pkg>
+- macOS Arm version, supporting m1, m2, m3 CPUs, download address: <http://www.hostbuf.com/downloads/finalshell_macos_arm64.pkg>
 
-- macOS X64版,支持旧款intel cpu,下载地址: <http://www.hostbuf.com/downloads/finalshell_macos_x64.pkg>
+- macOS X64 version, supporting older Intel CPUs, download address: <http://www.hostbuf.com/downloads/finalshell_macos_x64.pkg>
 
-- Linux X64版,下载地址: <http://www.hostbuf.com/downloads/finalshell_linux_x64.deb>
+- Linux X64 version, download address: <http://www.hostbuf.com/downloads/finalshell_linux_x64.deb>
 
-- Linux Arm64版,下载地址: <http://www.hostbuf.com/downloads/finalshell_linux_arm64.deb>
+- Linux Arm64 version, download address: <http://www.hostbuf.com/downloads/finalshell_linux_arm64.deb>
 
-- Linux LoongArch64龙芯版,下载地址: <http://www.hostbuf.com/downloads/finalshell_linux_loong64.deb>
+- Linux LoongArch64 Longxin version, download address: <http://www.hostbuf.com/downloads/finalshell_linux_loong64.deb>
 
-## 其他服务
+## Other Services
 
-- PHP配置: <https://docs.serv00.com/PHP/#php-version>
+- PHP Configuration: <https://docs.serv00.com/PHP/#php-version>
 
-- Memcached配置: <https://docs.serv00.com/Memcached/>
+- Memcached Configuration: <https://docs.serv00.com/Memcached/>
 
-  启动：memcached -s /usr/home/LOGIN/domains/DOMAIN/memcached.sock -d
+  Start: memcached -s /usr/home/LOGIN/domains/DOMAIN/memcached.sock -d
 
-- Redis配置: <https://docs.serv00.com/Memcached/>
+- Redis Configuration: <https://docs.serv00.com/Memcached/>
 
-## 特别注意
+## Special Note
 
-serv00虽然有10年使用期，但无法清除Apache和其它服务产生的日志，在容量限制情况下，不建议大日志产生的高流量服务和高频次作业任务。
+Although serv00 has a 10-year usage period, it cannot clear logs generated by Apache and other services. Under capacity constraints, high-traffic services that generate large logs and high-frequency tasks are not recommended.
+
+## Star Trend
+
+[![Stargazers Over Time](https://starchart.cc/lopins/serv00-auto-scripts.svg?variant=adaptive)](https://starchart.cc/lopins/serv00-auto-scripts)
+
+## JSON Generator
+
+- <https://lopins.github.io/serv00-auto-scripts/>
