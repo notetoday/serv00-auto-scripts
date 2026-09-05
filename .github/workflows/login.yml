@@ -41,3 +41,19 @@ jobs:
         run: |  
           set -e  
           xvfb-run --server-args="-screen 0 1280x1024x24" node src/main.js
+
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Keep repository active
+        uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: false
+          commit_message: "chore: keepalive commit to keep scheduled workflows active"
